@@ -1,0 +1,21 @@
+version: '3.8' # The version of the Compose file services
+services: # Declare the services that make up your app
+  # Checkout the Dockerfile in the same directory as the build folders
+  api:
+    build: ./MISW4201-202214-Backend-Grupo10
+    ports:
+      - 5001:5001
+    stdin_open: true # Allows us to run the container in interactive mode
+    deploy:
+      resources:
+        limits:
+          cpus: '333m'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
+  # web:
+  #   build: ./MISW4201-202214-Frontend-Grupo10
+  #   ports:
+  #     - 4401:4401
+  #   stdin_open: true
